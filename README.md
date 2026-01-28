@@ -1,6 +1,9 @@
 # Auth & Identity Service (FastAPI)
 
 Production‑style backend service showcasing authentication fundamentals, JWT, PostgreSQL, Redis rate limiting, and RBAC. Designed for portfolio use and easy testing via Swagger, Postman, or curl.
+<p align="center">
+  <img src="Screenshot%202026-01-28%20164631.png" alt="Auth Identity Service Screenshot" width="600">
+</p>
 
 ## Features
 - User registration with email verification (mocked/logged)
