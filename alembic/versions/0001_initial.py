@@ -18,7 +18,7 @@ depends_on = None
 
 
 def upgrade() -> None:
-    userrole = postgresql.ENUM("user", "admin", name="userrole")
+    userrole = postgresql.ENUM("user", "admin", name="userrole", create_type=False)
     userrole.create(op.get_bind(), checkfirst=True)
 
     op.create_table(
