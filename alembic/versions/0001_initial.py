@@ -18,8 +18,13 @@ depends_on = None
 
 
 def upgrade() -> None:
+    op.execute(
+        "DO $$ BEGIN "
+        "IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'userrole') THEN "
+        "CREATE TYPE userrole AS ENUM ('user', 'admin'); "
+        "END IF; END $$;"
+    )
     userrole = postgresql.ENUM("user", "admin", name="userrole", create_type=False)
-    userrole.create(op.get_bind(), checkfirst=True)
 
     op.create_table(
         "users",
